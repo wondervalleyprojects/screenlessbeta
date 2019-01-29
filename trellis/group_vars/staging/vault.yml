@@ -1,0 +1,24 @@
+# Documentation: https://roots.io/trellis/docs/vault/
+vault_mysql_root_password: stagingpw
+
+# Documentation: https://roots.io/trellis/docs/security/
+vault_users:
+  - name: "{{ admin_user }}"
+    password: example_password
+    salt: "generateme"
+
+# Variables to accompany `group_vars/staging/wordpress_sites.yml`
+# Note: the site name (`example.com`) must match up with the site name in the above file.
+vault_wordpress_sites:
+  screenless.tv:
+    env:
+      db_password: example_dbpassword
+      # Generate your keys here: https://roots.io/salts.html
+      auth_key: "L].T]e{_;3[a=rwS{W6fd$2Rbg^MaGG@V0oldODUkR7lpb4c!,Z6F5=UjdnHJ$50"
+      secure_auth_key: ".LDPilCmq*=`AB}v/!dy$:ssv:w{Na7IPa>Jz;3/G>&I=Rbv:h=lkkJm3pStQftj"
+      logged_in_key: "wWCAHWdSxrFY?y-Mb*j_xLs(dv$gTu.ncNZLg^F:MF#@.sCh,!t:oe;Xxj9,e%KG"
+      nonce_key: ";yA+pX{#!1sZO_QO0rUw]yw/R;8eqypCJXN2.c7*KRF<8f9)7dRx8$RhvhDO8!W$"
+      auth_salt: "Qr4eqTXeDq@Br;uab@}b8MYk./mZcj]-=n5b`O`)z/`]AS<t#-onQ{Wa4CcFXnj,"
+      secure_auth_salt: "OU%xV}164-yC-s`()mNYjv}4>C|CRtB+depOr@rSjN6RD!N.n!;HFp6hpu-t_fHa"
+      logged_in_salt: "($L[4*()-%.e%d[<o1D#UrZ/9CX059lpa&c$XpSsOahSutwXfzx-cQntoF/+wwSl"
+      nonce_salt: "Pyh))]?Inm}i6hEVMrVQ|a[.M=:#+AR9M6w5(R=:GUqbI0q0MFeEN##s4Xh9,HU%"

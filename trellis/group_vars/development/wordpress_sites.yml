@@ -1,0 +1,20 @@
+# Documentation: https://roots.io/trellis/docs/local-development-setup/
+# `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/development/vault.yml
+
+wordpress_sites:
+  screenless.tv:
+    site_hosts:
+      - canonical: screenless.test
+        redirects:
+          - www.screenless.test
+    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
+    admin_email: japhy@screenless.test
+    multisite:
+      enabled: true
+      subdomain: true
+    ssl:
+      enabled: false
+      provider: self-signed
+    cache:
+      enabled: false
